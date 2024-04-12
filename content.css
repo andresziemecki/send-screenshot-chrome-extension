@@ -1,0 +1,84 @@
+.aaz-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 999998;
+}
+
+.aaz-mask .box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(0, 0, 0, 0.5);
+  cursor: move;
+  z-index: 999999;
+}
+
+.aaz-mask .resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #000;
+}
+
+.aaz-mask .top-left {
+  top: -5px;
+  left: -5px;
+  cursor: nw-resize;
+}
+
+.aaz-mask .top {
+  top: -5px;
+  left: calc(50% - 5px);
+  cursor: ns-resize;
+}
+
+.aaz-mask .top-right {
+  top: -5px;
+  right: -5px;
+  cursor: ne-resize;
+}
+
+.aaz-mask .right {
+  top: calc(50% - 5px);
+  right: -5px;
+  cursor: ew-resize;
+}
+
+.aaz-mask .bottom-right {
+  bottom: -5px;
+  right: -5px;
+  cursor: se-resize;
+}
+
+.aaz-mask .bottom {
+  bottom: -5px;
+  left: calc(50% - 5px);
+  cursor: ns-resize;
+}
+
+.aaz-mask .bottom-left {
+  bottom: -5px;
+  left: -5px;
+  cursor: sw-resize;
+}
+
+.aaz-mask .left {
+  top: calc(50% - 5px);
+  left: -5px;
+  cursor: ew-resize;
+}
+
+.aaz-preview-image {
+  width: 30%;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid black;
+  z-index: 9999999999;
+}

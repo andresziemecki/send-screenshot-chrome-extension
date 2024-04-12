@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Screen Capture",
+  "version": "1.0",
+  "permissions": ["webRequest", "activeTab", "commands", "clipboardWrite"],
+  "commands": {
+    "capture-start": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "start capture"
+    },
+    "capture-confirm": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "confirm capture"
+    },
+    "capture-cancel": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "cancel capture"
+    }
+  },
+  "host_permissions": ["https://localhost/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["lib/clipboard.js", "content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}
