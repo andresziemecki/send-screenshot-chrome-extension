@@ -2,7 +2,13 @@
   "manifest_version": 3,
   "name": "Screen Capture",
   "version": "1.0",
-  "permissions": ["webRequest", "activeTab", "commands", "clipboardWrite"],
+  "permissions": [
+    "webRequest",
+    "activeTab",
+    "commands",
+    "clipboardWrite",
+    "downloads"
+  ],
   "commands": {
     "capture-start": {
       "suggested_key": {

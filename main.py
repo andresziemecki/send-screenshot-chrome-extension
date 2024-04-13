@@ -1,4 +1,5 @@
 from flask import Flask, request
+import os
 
 app = Flask(__name__)
 
@@ -27,6 +28,22 @@ def get_code(image_file):
     if __name__ == '__main__':
         app.run(debug=True, port=8080)"""
 
+def save_image(image_file):
+    # Specify the directory where you want to save the image
+    upload_folder = './uploads'
+    
+    # Check if the directory exists, if not create it
+    if not os.path.exists(upload_folder):
+        os.makedirs(upload_folder)
+    
+    # Save the image to the specified directory
+    image_path = os.path.join(upload_folder, image_file.filename)
+    image_file.save(image_path)
+    
+    # Return the path where the image is saved
+    return image_path
+
+
 @app.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
@@ -36,7 +53,7 @@ def upload_image():
     
     if image_file.filename == '':
         return 'No selected image', 400
-    c = get_code(image_file)
+    c = save_image(image_file)
 
     return c, 200
 

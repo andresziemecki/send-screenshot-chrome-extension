@@ -56,6 +56,22 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
       message.dataUrl.replace(/^data:image\/(png|jpeg|jpg);base64,/, ""),
       "image/png"
     );
+
+    // Debugging code, used to download cropped images that are
+    // about to be sent to the backend for viewing.
+    // (() => {
+    //   var reader = new FileReader();
+    //   reader.onload = function (event) {
+    //     var url = event.target.result;
+    //     chrome.downloads.download({
+    //       url: url,
+    //       filename: "capture-image.png",
+    //       saveAs: true, // 弹出文件保存对话框
+    //     });
+    //   };
+    //   reader.readAsDataURL(blob);
+    // })();
+
     var formData = new FormData();
     formData.append("image", blob, "capture-image.png");
 

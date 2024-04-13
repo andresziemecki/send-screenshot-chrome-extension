@@ -149,6 +149,15 @@ console.log("capture screen content js loaded...");
     var ctx = canvas.getContext("2d");
     var img = new Image();
 
+    // Get device pixel ratio
+    var devicePixelRatio = window.devicePixelRatio || 1;
+
+    // Convert x, y, width, and height to accommodate the device pixel ratio
+    x *= devicePixelRatio;
+    y *= devicePixelRatio;
+    width *= devicePixelRatio;
+    height *= devicePixelRatio;
+
     img.onload = function () {
       canvas.width = width;
       canvas.height = height;
